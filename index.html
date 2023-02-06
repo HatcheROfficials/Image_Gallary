@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://kit.fontawesome.com/a84f2d2288.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/CSS" href="../ImageGallary/indexCss.css"/>
         <title> Testing DOM </title>
     </head>
     <body>
         <div id="container" class="testBorder">
+
+            <!-- main image -->
             <div id="main" class="testBorder imageAlign">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/2018_Ford_Mustang_GT_5.0.jpg" 
                 alt="A generic car"/>
             </div>
             
+            <!-- thumbnail images -->
             <div id="thumbBar" class="testBorder">
                 <div id="img1" class="testBorder thumbImg imageAlign">
                     <img src="https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/0x0.jpg?format=jpg&crop=4560,2565,x790,y784,safe&width=1200"
@@ -35,6 +39,16 @@
                 <div id="img5" class="testBorder thumbImg imageAlign">
                     <img src="https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/0x0.jpg?format=jpg&crop=4560,2565,x790,y784,safe&width=1200" 
                     alt="A generic car">
+                </div>
+            </div>
+
+            <!-- thumbnail scroll buttons -->
+            <div id="scrollBtn" class="testBorder">
+                <div id="leftBtn" class="indivBtn testBorder">
+                    <i class="fa-solid fa-caret-left"></i>
+                </div>
+                <div id="rightBtn" class="indivBtn testBorder">
+                    <i class="fa-solid fa-caret-right"></i>
                 </div>
             </div>
         </div>
