@@ -15,18 +15,38 @@ var images = document.getElementsByTagName("img");
 
 // setting up initial main image 
 images[0].src = imgArr[0];
+
 // setting up initial tumbnail images
 for(let i=0; i<5; i++){
     images[i+1].src = imgArr[i];
 }
 
+// highlighting the first thumbnail by default
+images[1].parentElement.classList.add("highlightThubImg")
+
 // Selected thumbnail image will display in main image   
 function setMainImage(event){
-    var targetImg = event.target;
+    var targetImg;
+
+    // in case the div is pressed which contains image and image is not pressed
+    if(event.target.tagName == "DIV"){
+        targetImg = event.target.firstElementChild;
+    } else{
+        targetImg = event.target;
+    }
+    
+    // removing highlight class from all thumbnail divs
+    for(let i=0; i<5; i++){
+        images[i+1].parentElement.classList.remove("highlightThubImg");
+    }
+    // adding highlight class to target div
+    targetImg.parentElement.classList.add("highlightThubImg");
+
     currentMainImageIndex = imgArr.indexOf(targetImg.src);
     images[0].src = targetImg.src;
 }
 
+// adding event for thumbnail image click
 var thumbnailDiv = document.getElementById("thumbBar");
 thumbnailDiv.addEventListener("click",setMainImage);
 
@@ -64,6 +84,15 @@ function scrollThumbnail(event){
 
         for(let i=imgArrStartIndex; i<=imgArrEndIndex; i++){
             images[i-imgArrStartIndex+1].src = imgArr[i];
+        }
+    }
+
+    // adding highlight class to active div
+    for(let i=0; i<5; i++){
+        if(images[i+1].src == imgArr[currentMainImageIndex]){
+            images[i+1].parentElement.classList.add("highlightThubImg");
+        } else{
+            images[i+1].parentElement.classList.remove("highlightThubImg");
         }
     }
 }
