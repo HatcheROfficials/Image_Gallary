@@ -23,6 +23,7 @@ for(let i=0; i<5; i++){
 // Selected thumbnail image will display in main image   
 function setMainImage(event){
     var targetImg = event.target;
+    currentMainImageIndex = imgArr.indexOf(targetImg.src);
     images[0].src = targetImg.src;
 }
 
@@ -37,17 +38,29 @@ var r_scrollBtn = document.getElementById("rightBtn");
 var imgArrStartIndex = 0; // start index
 var imgArrEndIndex = 4; // end index
 
+var currentMainImageIndex = 0; // index of image current on display
+
 function scrollThumbnail(event){
-    if(event.target == r_scrollBtn && imgArrEndIndex < imgArr.length-1){
-        imgArrStartIndex++;
-        imgArrEndIndex++;
+    if(event.target == r_scrollBtn && currentMainImageIndex < imgArr.length-1){
+        currentMainImageIndex++;
+        images[0].src = imgArr[currentMainImageIndex];
+
+        if(currentMainImageIndex > imgArrEndIndex){
+            imgArrEndIndex = currentMainImageIndex;
+            imgArrStartIndex = imgArrEndIndex-4;
+        }
 
         for(let i=imgArrStartIndex; i<=imgArrEndIndex; i++){
             images[i-imgArrStartIndex+1].src = imgArr[i];
         }
-    } else if(event.target == l_scrollBtn && imgArrStartIndex > 0){
-        imgArrStartIndex--;
-        imgArrEndIndex--;
+    } else if(event.target == l_scrollBtn && currentMainImageIndex > 0){
+        currentMainImageIndex--;
+        images[0].src = imgArr[currentMainImageIndex];
+
+        if(currentMainImageIndex < imgArrStartIndex){
+            imgArrStartIndex = currentMainImageIndex;
+            imgArrEndIndex = imgArrStartIndex+4;
+        }
 
         for(let i=imgArrStartIndex; i<=imgArrEndIndex; i++){
             images[i-imgArrStartIndex+1].src = imgArr[i];
