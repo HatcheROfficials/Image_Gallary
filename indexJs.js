@@ -17,3 +17,11 @@ for(let i=0; i<5; i++){
     images[i+1].src = imgArr[i];
 }
 
+// Selecting thumbnail image will display in main image   
+function setMainImage(event){
+    var targetImg = event.target;
+    images[0].src = targetImg.src;
+}
+
+var thumbnailDiv = document.getElementById("thumbBar");
+thumbnailDiv.addEventListener("click",setMainImage);
