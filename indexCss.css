@@ -1,0 +1,48 @@
+*{
+    margin: auto;
+}
+
+.testBorder{
+    border: 0px solid black;
+}
+
+/* Gallary Container */
+#container{
+    width: 50vw;
+    aspect-ratio: 1/1;
+}
+
+/* Main image */
+#main{
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+}
+
+/* Align image in center of div */
+.imageAlign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Setting image width and height */
+img{
+    height: 100%;
+}
+
+/* Thumbnail bar container */
+#thumbBar{
+    display: flex;
+    width: 100%;
+    height: 20%;
+}
+
+/* Thumbnain bar image div */
+.thumbImg{
+    width: 20%;
+    height: 100%;
+    max-width: 100%;
+}
+
